@@ -11,7 +11,8 @@ interface GetUserProfileResponse {
 }
 
 export class GetUserProfileUseCase {
-  constructor(private usersRepository: UsersRepository) {}
+  constructor(private readonly usersRepository: UsersRepository) {}
+
 
   async execute({ userId }: GetUserProfileRequest): Promise<GetUserProfileResponse> {
     const user = await this.usersRepository.findById(userId);
